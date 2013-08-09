@@ -1,0 +1,86 @@
+.modal-box {
+  display: none;
+  visibility: hidden;
+  top: 75px;
+  @include mobile {
+    top: 10px;
+  }
+  left: 50%;
+  position: fixed;
+  z-index: 320;
+  background: #dedede;
+  width: 512px;
+  margin-left: -256px;
+  &.big {
+    width: 768px;
+    margin-left: -384px;
+    @include tablet {
+      width: auto;
+      right: 10px;
+      left: 10px;
+      margin-left: 0px;
+    }
+  }
+  @include tablet {
+    width: auto;
+    right: 10px;
+    left: 10px;
+    margin-left: 0px;
+  }
+  @include border-radius(4px);
+  @include box-shadow(1px, 1px, 5px, rgba(0, 0, 0, 0.2));
+  .modal-container {
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    img {
+      text-align: center;
+    }
+  }
+}
+.modal-header {
+  padding: 9px 15px;
+  h3 {
+    font-size: 1.2em;
+    margin: 0;
+  padding: 6px 0px;
+  }
+  .close {
+    float: right;
+    color: $txtColor;
+    @include text-shadow(1px, 1px, 5px, rgb(255, 255, 255));
+    opacity: 0.3;
+    &:hover {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+  }
+  button.close {
+    background: transparent;
+    border: none;
+  }
+}
+.modal-body {
+  padding: 9px 15px;
+}
+.modal-footer {
+  padding: 9px 15px 15px 15px;
+  @include border-radius(4px);
+}
+.curtain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #000;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  z-index: 2;
+}
+
+.loading-spinner {
+  text-align: center;
+  padding: 30px;
+  font-size: 2em;
+}

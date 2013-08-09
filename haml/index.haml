@@ -1,0 +1,26 @@
+!!! 5
+%html.no-js
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{"http-equiv" => "X-UA-Compatible", :content => "IE=edge, chrome=1"}
+    %title
+    %meta{:name => "description", :content => ""}
+    %meta{:name => "viewport", :content => "width=device-width"}
+    /[if lte IE 9]
+      %script{:src => "//html5shiv.googlecode.com/svn/trunk/html5.js"}
+    %link{:href => "css/base_stylesheet.css", :rel => "stylesheet", :type => "text/css"}
+    %link{:href => "css/responsive_framework.css", :rel => "stylesheet", :type => "text/css"}
+    %link{:href => "css/style.css", :rel => "stylesheet", :type => "text/css"}
+  %body
+    .container
+      .row
+        .span-12
+          #myTimeline
+            %h3
+              Hey man
+            .datePoint
+              &nbsp;
+            .datePoint.active
+              •
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"}
+    %script{:src => "src/timeline.js"}

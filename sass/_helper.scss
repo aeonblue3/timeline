@@ -1,0 +1,319 @@
+img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  vertical-align: middle;
+  border: 0;
+  
+  -ms-intepolation-mode: bicubic;
+  &.round {
+    @include border-radius(500px);
+  }
+  &.framed {
+    padding: 4px;
+    border: 1px solid #eee;
+    background: #fff;
+    margin:1px 1px 10px 1px;
+    @include border-radius(4px);
+  }
+}
+
+@each $direction in $relativeDirection {
+  .#{$direction} {
+    float: #{$direction} !important;
+    &:after {
+      content: "\0020";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+  }
+  @include desktop {
+    .desktop-#{$direction} {
+      float: #{$direction};
+      &:after {
+        content: "\0020";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+      }
+    }
+    .desktop-clear {
+      float: none;
+      display: block;
+    }
+  }
+  @include tablet {
+    .tablet-#{$direction} {
+      display: inline;
+      float: #{$direction};
+      &:after {
+        content: "\0020";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+      }
+    }
+   .tablet-clear {
+     float:none;
+     display: block;
+   }
+  }
+  
+  @include mobile {
+    .mobile-#{$direction} {
+      display: inline;
+      float: #{$direction};
+      &:after {
+        content: "\0020";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+      }
+    }
+    .mobile-clear {
+      float: none !important;
+      display: block;
+    }
+  }
+}
+.hide {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+footer {
+  padding-top: 10px;
+  clear: both;
+}
+
+.super-header {
+  margin-top: 0px;
+  width: 100%;
+  h1 {
+    font-size: 3.39787em;
+  }
+  h2 {
+    font-size: 2.8315em;
+  }
+}
+
+.centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.inline {
+  display: inline;
+}
+
+.social-media {
+  display: inline;
+  margin-top: 10px;
+  li {
+    display: inline;
+    padding: 2px;
+  }
+}
+@include tablet(min) {
+  .desktop-hide {
+    display: none !important;
+    visibility: hidden !important;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@include tablet {
+  .tablet-hide {
+    display: none !important;
+    visibility: hidden !important;
+    & + div, & + span, & + table, & + caption, & + tr, & + th, & + td, & + article, & + aside, & + figure, & + figcaption, & + footer, & + header, & + hgroup, & + menu, & + nav, & + section, & + summary,  {
+      margin-left: 0 !important;
+    }
+  }
+  .tablet-centered {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .tablet-no-float {
+    float: none;
+  }
+}
+
+@include mobile {
+  .mobile-hide {
+    display: none !important;
+    visibility: hidden !important;
+    & + div, & + span, & + table, & + caption, & + tr, & + th, & + td, & + article, & + aside, & + figure, & + figcaption, & + footer, & + header, & + hgroup, & + menu, & + nav, & + section, & + summary,  {
+      margin-left: 0 !important;
+    }
+  }
+  .mobile-centered {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .mobile-no-float {
+    float: none;
+  }
+}
+@include mobile(min) {
+  .mobile-only {
+    display: none !important;
+    visibility: hidden !important;
+    & + div, & + span, & + table, & + caption, & + tr, & + th, & + td, & + article, & + aside, & + figure, & + figcaption, & + footer, & + header, & + hgroup, & + menu, & + nav, & + section, & + summary,  {
+      margin-left: 0 !important;
+    }
+  }
+}
+
+.no-bottom-margin {
+  margin-bottom: 0px;
+}
+
+// Halves
+.half {
+  @include span-columns($default-columns / 2);
+  @include tablet {
+    @include span-columns($default-columns / 2);
+  }
+}
+
+// Thirds
+.one-third {
+  width: 33.333333333%;
+  float: left;
+  @include tablet {
+    float: none;
+    display: block;
+    width: 100%;
+  }
+}
+.two-thirds {
+  width: 66.666666666%;
+  float: left;
+  @include tablet {
+    float: none;
+    display: block;
+    width: 100%;
+  }
+}
+
+// Fourths
+.one-fourth {
+  width: 25%;
+  float: left;
+  @include tablet {
+    float: none;
+    display: block;
+    width: 100%;
+  }
+}
+
+.quarters {
+  width: 25%;
+  float: left;
+}
+
+// Two-fourths is half
+.three-fourths {
+  width: 75%;
+  float: left;
+  @include tablet {
+    float: none;
+    display: block;
+    width: 100%;
+  }
+}
+
+@include tablet {
+  .tablet-half {
+    width: 50%;
+    float: left;
+    padding-left: 1em;
+    &:first-child {
+      padding-left: 0px;
+    }
+  }
+}
+
+@include mobile {
+  .tablet-half {
+    padding: 0;
+    width: 100%;
+    float: none;
+  }
+}
+
+@include mobile {
+  .mobile-half {
+    width: 50%;
+    float: left;
+  }
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}

@@ -1,0 +1,395 @@
+// @override
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td, button, input, select, textarea {
+  color: $text;
+  direction: $text-direction;
+  font-family: $_opensans;
+  line-height: 1.6;
+}
+
+p {
+  font-weight: normal;
+  font-size: 1em;
+  line-height: 1.6;
+  margin: 10px 0 0;
+  @include breakpoint(71.875em) {
+    font-size: 0.9375em;
+  }
+  @include breakpoint(53.125em) {
+    font-size: 0.875em;
+  }
+  .lead {
+    font-size: 1.09375em;
+    line-height: 1.6;
+    margin-bottom: 17px;
+  }
+  &.note {
+    color: #999999;
+    font-style: italic;
+    font-size: 80%;
+  }
+  &.article {
+    font-size: 1em;
+  }
+}
+
+small {
+  font-size: 60%;
+}
+aside p {
+  font-size: 0.8125em;
+  line-height: 1.35;
+  font-style: italic;
+}
+.tiny {
+  font-size: 50%;
+}
+.small {
+  font-size: 80%;
+}
+.normal {
+  font-size: 100%;
+}
+.large {
+  font-size: 120%;
+}
+.x-large {
+  font-size: 140%;
+}
+p a {
+  line-height: inherit;
+  &:visited {
+    line-height: inherit;
+  }
+}
+.center, .centered {
+  text-align: center;
+}
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}
+a {
+  color:$link_color;
+  text-decoration: none;
+  line-height: inherit;
+  &:link {
+    color:$link_color;
+    text-decoration: none;
+  }
+  &:visited {
+    color: $link_visited;
+  }
+  &:hover {
+    color: $link_hover;
+    text-decoration: none;
+    outline: 0;
+  }
+  &:active {
+    outline: 0;
+    color: $link_active;
+  }
+  &:focus {
+    outline: thin dotted;
+  }
+  @include transition(color .1s linear);
+  outline:none !important;
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    color: $txtColor;
+    text-rendering: optimizeLegibility;
+    line-height: 1.1;
+    margin-top: 0.5em;
+    padding: 0;
+    &.small {
+      font-size: (0.25em*0.6)*(7-$i);
+    }
+    &.large {
+      font-size: (0.25em*2.6)*(7-$i);
+    }
+  }
+}
+
+h1 {
+  font-size: 3.88328em;
+  @include tablet {
+    font-size: 2.58885em;
+  }
+  @include mobile {
+    font-size: 1.94164em;
+  }
+}
+h2 {
+  font-size: 2.58885em;
+  @include tablet {
+    font-size: 1.94164em;
+  }
+  @include mobile {
+    font-size: 1.6em;
+  }
+}
+h3 {
+  font-size: 1.94164em;
+  @include tablet {
+    font-size: 1.6em;
+  }
+  @include mobile {
+    font-size: 1.4em;
+  }
+}
+h4 {
+  font-size: 1.6em;
+  @include tablet {
+    font-size: 1.4em;
+  }
+  @include mobile {
+    font-size: 1em;
+  }
+}
+h5 {
+  font-size: 1.2em;
+    @include tablet {
+      font-size: 1em;
+    }
+    @include mobile {
+      font-size: 0.8em;
+    }
+}
+h6 {
+  font-size: 1em;
+    @include tablet {
+      font-size: 0.8em;
+    }
+    @include mobile {
+      font-size: 0.6em;
+    }
+}
+
+b, strong {
+  font-weight: bolder;
+}
+
+blockquote {
+  margin: 0 0 1.0625em;
+  padding: 0.5625em 1.25em 0em 1.1875em;
+  color: $grid_f2;
+  // font-style: italic;
+  p {
+    margin: 0;
+    color: $grid_f2;
+    &:before {
+      content: "\"";
+    }
+    &:after {
+      content: "\"";
+    }
+  }
+  cite {
+    display: block;
+    font-size: 0.8125em;
+    color: $grid_f2;
+    &:before {
+      content: "—";
+    }
+    a {
+      color: $grid_f3;
+      &:visited {
+        color: $grid_f3;
+      }
+    }
+  }
+}
+
+abbr {
+  text-transform: uppercase;
+  font-size: 90%;
+  color: $txtColor;
+  border-bottom: 1px solid $grid_f4;
+  cursor: help;
+  acronym {
+    text-transform: uppercase;
+    font-size: 90%;
+    color: $txtColor;
+    border-bottom: 1px solid $grid_f4;
+    cursor: help;
+  }
+  text-transform: none;
+  &[title] {
+    border-bottom: 1px solid $grid_f4;
+  }
+}
+
+dfn {
+  font-style: italic;
+}
+
+sub {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+  bottom: -0.25em;
+}
+
+sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+  top: -0.5em;
+}
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  clear: both;
+  margin: 22px 0 14px;
+  height: 0;
+  border: solid $grid_f4;
+  border-width: 1px 0 0;
+}
+
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: "courier new",courier,monospace;
+  _font-family: 'courier new', monospace;
+  font-size: 1em;
+  color:#444;
+  margin:1em 0 1.5em;
+  padding:1em;
+  font-size:12px;
+}
+
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow: auto;
+  padding: 10px;
+}
+
+code {
+  white-space: pre;           /* CSS 2.0 */
+  white-space: pre-wrap;      /* CSS 2.1 */
+  white-space: pre-line;      /* CSS 3.0 */
+  white-space: -pre-wrap;     /* Opera 4-6 */
+  white-space: -o-pre-wrap;   /* Opera 7 */
+  white-space: -moz-pre-wrap; /* Mozilla */
+  white-space: -hp-pre-wrap;  /* HP Printers */
+  word-wrap: break-word;      /* IE 5+ */
+}
+
+q {
+  quotes: none;
+  &:before, &:after {
+    content:'';
+    content: none;
+  }
+}
+
+ol {
+  line-height: 1.6;
+  margin-bottom: 17px;
+  list-style-position: inside;
+  &.decimal {
+    list-style-position: outside;
+    list-style-type: decimal;
+    li ul {
+      list-style-type: inherit;
+    }
+  }
+}
+
+ul {
+  line-height: 1.6;
+  margin-bottom: 17px;
+  list-style-position: inside;
+  li {
+    ul, ol {
+      margin-left: 0px;
+      margin-bottom: 0;
+    }
+    a {
+      padding: 8px 4px;
+    }
+  }
+  margin-left: 0px;
+  margin-bottom: 0;
+
+  &.hiragana {
+    list-style-type: hiragana;
+    li ul {
+      list-style-type: inherit;
+    }
+  }
+  &.square {
+    list-style-type: square;
+    li ul {
+      list-style-type: inherit;
+    }
+  }
+  &.disc {
+    list-style-type: disc;
+    li ul {
+      list-style-type: inherit;
+    }
+  }
+  &.circle {
+    list-style-type: circle;
+    li ul {
+      list-style-type: inherit;
+    }
+  }
+  &.no-bullet {
+    list-style-type: none;
+  }
+  &.large li {
+    line-height: 1.3125em;
+  }
+}
+
+ol li {
+  ul, ol {
+    margin-left: 0px;
+    margin-bottom: 0;
+  }
+}
+
+// Convenience classes
+
+.green {
+  color: $grid_c4;
+}
+
+.brown {
+  color: #844726;
+}
+
+.orange {
+  color: #FC7D00;
+}
+
+.bold {
+  font-weight: bolder;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 10px;
+  color: #333;
+  font-size: 3.9em;
+  @include tablet {
+    font-size: 2.8em;
+  }
+}

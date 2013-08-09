@@ -1,0 +1,15 @@
+@import 'base';
+.datePoint {
+  width: 15px;
+  height: 15px;
+  @include border-radius(25px);
+  @include linear-gradient(#FEFEFE, #E8E8E8);
+  border: 1px solid #CCCCCC;
+  display: inline-block;
+  text-align: center;
+  font-size: 1.2em;
+  vertical-align: middle;
+  &.active {
+    color: #FA8612;
+  }
+}

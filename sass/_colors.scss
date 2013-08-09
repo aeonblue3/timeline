@@ -1,0 +1,28 @@
+//---------------------------------------------------------------------
+// Colors
+//---------------------------------------------------------------------
+$grid_a1: #e88925; $grid_b1: #2ca2b4; $grid_c1: #06464c; $grid_d1: #dbd2ba; $grid_e1: #9a886f; $grid_f1: #333333;
+$grid_a2: #ee9229; $grid_b2: #6cc5d6; $grid_c2: #0c707e; $grid_d2: #e8dcc0; $grid_e2: #6c5944; $grid_f2: #444444;
+$grid_a3: #ef9f44; $grid_b3: #b8e0e7; $grid_c3: #30711c; $grid_d3: #f6eccf; $grid_e3: #954b00; $grid_f3: #cccccc;
+$grid_a4: #f0af5a; $grid_b4: #D2EEF3; $grid_c4: #4ca930; $grid_d4: #faf5e5; $grid_e4: #d3ab87; $grid_f4: #dddddd;
+
+$heading_color  : $grid_f1;
+$text           : $grid_f1;
+$link_color     : #5087CA;
+$link_hover     : #366db1;
+$link_visited   : #5087CA;
+$link_active    : #5087CA;
+
+$sdrive_info_box_header       : rgb(94, 125, 128);
+
+$button_default_color         : rgb(175,175,175); // light gray
+$button_primary_color         : rgb(0,112,127);   // blue
+$button_info_color            : rgb(197,97,0);       // orange
+$button_success_color         : rgb(46,110,23);   // green
+$button_danger_color          : rgb(144,28,14);    // red
+$button_addon_color           : rgb(73,73,73);      // charcoal
+$button_sdrive_color          : rgb(244,227,186);  // sand
+$button_sdrive_fade           : rgb(250, 244, 228); // light sand
+$button_shade_offset          : 15%;
+$button_border_side_offset    : 5%;
+$button_border_bottom_offset  : 20%;

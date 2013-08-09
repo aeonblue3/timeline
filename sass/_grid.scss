@@ -1,0 +1,160 @@
+.row {
+  width: 100%;
+  &:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+// [class*="span"] > [class*="span"], .row > .row [class*="span"], .row > [class*="span"] {
+//   &:first-child {
+//     margin-left: 0;
+//   }
+//   &:last-child {
+//     margin-right: 0;
+//   }
+// }
+[class*='span'] {
+  margin-bottom: 10px;
+}
+@if $show-grid == true {
+  .grid {
+    @include grid-background;
+  }
+}
+
+@for $i from 1 through $default-columns {
+  .span-#{$i}, .row .span-#{$i} {
+    @include span-columns($i);
+    @include tablet {
+      @include span-columns($default-columns);
+    }
+    @include mobile {
+      @include span-columns($default-columns);
+    }
+  }
+  @if $i != $default-columns {
+    .push-#{$i}, .row .push-#{$i} {
+      position: relative;
+      @include push($i);
+      @include tablet {
+        left: 0;
+      }
+    }
+    .pull-#{$i}, .row .pull-#{$i} {
+      position: relative;
+      @include pull($i);
+      @include tablet {
+        right: 0;
+      }
+    }
+  }
+}
+
+@include tablet {
+  @for $i from 1 through $default-columns {
+    .tablet-span-#{$i}, .row .tablet-span-#{$i} {
+      @include span-columns($i);
+    }
+    .tablet-offset-#{$i}, .row .tablet-offset-#{$i} {
+      @include offset-columns($i);
+    }
+    @if $i != $default-columns {
+      .tablet-push-#{$i}, .row .tablet-push-#{$i} {
+        position: relative;
+        @include push($i);
+      }
+      .tablet-pull-#{$i}, .row .tablet-pull-#{$i} {
+        position: relative;
+        @include pull($i);
+      }
+    }
+  }
+}
+@include mobile {
+  @for $i from 1 through $tablet-columns {
+    .tablet-span-#{$i}, .row .tablet-span-#{$i} {
+      @include span-columns($default-columns);
+    }
+    .tablet-push-#{$i}, .row .tablet-push-#{$i} {
+      left: 0;
+    }
+    .tablet-pull-#{$i}, .row .tablet-pull-#{$i} {
+      right: 0;
+    }
+  }
+
+  @for $i from 1 through $default-columns {
+    .mobile-span-#{$i}, .row .mobile-span-#{$i} {
+      @include span-columns($i);
+    }
+    .mobile-offset-#{$i}, .row .mobile-offset-#{$i} {
+      @include offset-columns($i);
+    }
+    @if $i != $default-columns {
+      .mobile-push-#{$i}, .row .mobile-push-#{$i} {
+        position: relative;
+        @include push($i);
+      }
+      .mobile-pull-#{$i}, .row .mobile-pull-#{$i} {
+        position: relative;
+        @include pull($i);
+      }
+    }
+  }
+}
+
+// [class*="span"]:first-child {
+//   margin-left:0;
+//   #margin-left: -1em;
+// }
+
+@for $i from 1 through $default-columns {
+  .offset-#{$i}, .row .offset-#{$i} {
+    @include offset-columns($i);
+    @include tablet {
+      margin-left: gutterCalc() / 2;
+      margin-right: gutterCalc() / 2;
+      #margin-left:-1em;
+    }
+    @include mobile {
+      margin-left: gutterCalc() / 2;
+      margin-right: gutterCalc() / 2;
+      #margin-left:-1em;
+    }
+  }
+}
+
+@include tablet {
+  @for $i from 1 through $tablet-columns {
+    .tablet-offset-#{$i}, .row .tablet-offset-#{$i} {
+      @include offset-columns($i);
+    }
+  }
+}
+@include mobile {
+  @for $i from 1 through $tablet-columns {
+    .tablet-offset-#{$i}, .row .tablet-offset-#{$i} {
+      margin-left: gutterCalc() / 2;
+      margin-right: gutterCalc() / 2;
+      #margin-left:-1em;
+    }
+  }
+
+  @for $i from 1 through $default-columns {
+    .mobile-offset-#{$i}, .row .mobile-offset-#{$i} {
+      @include offset-columns($i);
+    }
+  }
+}
+
+.row .row > [class*='span'] {
+  &:first-child {
+    margin-left: 0;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+}
